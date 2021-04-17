@@ -251,7 +251,7 @@ Temos métodos para registrar os usuários, para registrar os endereços de um u
 
 >_O pessoal do departamento de exception handling é bem eficiente, eles têm uns gestos esquisitos pra se comunicar, mas tudo bem_
 
-[imagem](https://thumbs.dreamstime.com/z/homem-africano-que-faz-caretas-da-raiva-guardando-o-dedo-perto-do-pesco%C3%A7o-imitando-faca-cortando-garganta-130221996.jpg)
+![imagem](https://thumbs.dreamstime.com/z/homem-africano-que-faz-caretas-da-raiva-guardando-o-dedo-perto-do-pesco%C3%A7o-imitando-faca-cortando-garganta-130221996.jpg)
 
 *Típico funcionário do departamento de exception handling num dia de trabalho normal*
 
