@@ -300,6 +300,8 @@ public class UserService {
 
 Logo de cara dá pra perceber mais dois @Autowired ali, injetamos objetos das duas classes de repository que, como eu expliquei anteriormente, contêm métodos para que acessemos o banco de dados. Temos métodos para registrar os usuários, para registrar os endereços de um usuário e para exibir um usuário com todos os seus endereços.
 
+Vale notar também que aqui usaremos aquela terceira classe que eu mencionei no pacote de model: o método getUserInformationById retorna um objeto contendo um usuário e sua lista de endereços.
+
 Caso algo dê errado no processo, teremos uma noção de onde pode ter ocorrido o erro devido às classes de exception handling que serão explicadas a seguir.
 
 ## O departamente de Exeption handling
