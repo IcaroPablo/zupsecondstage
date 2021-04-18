@@ -304,7 +304,7 @@ Caso algo dê errado no processo, teremos uma noção de onde pode ter ocorrido 
 
 ## O departamente de Exeption handling
 
-Nesse pacote teremos classes responsáveis por tratar os eventuais erros que possam acontecer durante o processo de cadastro e de cunsulta de informações no banco de dados
+Nesse pacote teremos classes responsáveis por tratar os eventuais erros que possam acontecer durante o processo de cadastro e de consulta de informações no banco de dados
 
 >_O pessoal do departamento de exception handling é bem eficiente, eles têm uns gestos esquisitos pra se comunicar, mas tudo bem_
 <img width="400" height="320" src="https://user-images.githubusercontent.com/27890590/115148324-6c8fb400-a035-11eb-99f1-5f5c8c25b4d4.png">
