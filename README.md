@@ -310,7 +310,85 @@ Caso algo dê errado no processo, teremos uma noção de onde pode ter ocorrido 
 
 ## O departamente de Exeption handling
 
-Nesse pacote teremos classes responsáveis por tratar os eventuais erros que possam acontecer durante o processo de cadastro e de consulta de informações no banco de dados
+Nesse pacote teremos 4 classes responsáveis por tratar os eventuais erros que possam acontecer durante o processo de cadastro e de consulta de informações no banco de dados. Essas classes são mostradas a seguir:
+
+~~~Java
+@ResponseStatus(value = HttpStatus.BAD_REQUEST)
+public class ConstraintException extends RuntimeException{
+	
+	private static final long serialVersionUID = 1L;
+	
+	public ConstraintException(String msg) {
+		super(msg);
+	}
+	
+	public ConstraintException(String msg, Throwable cause) {
+		super(msg, cause);
+	}
+
+}
+~~~
+*Snippet da classe ConstraintException*
+
+
+&nbsp;
+
+A classe de ConstraintException estende a classe de RuntimeException e assim podemos herdar seus métodos de exibição de mensagens no caso de alguma de nossas validações não ser respeitada
+
+~~~Java
+@ResponseStatus(value = HttpStatus.NOT_FOUND)
+public class ResourceNotFoundException extends Exception{
+
+    private static final long serialVersionUID = 1L;
+
+    public ResourceNotFoundException(String message){
+        super(message);
+    }
+}
+~~~
+*Snippet da classe ResourceNotFoundException*
+
+
+&nbsp;
+
+A classe de ResourceNotFoundException estende a classe de Exception e assim podemos herdar seus métodos de exibição de mensagens no caso de alguma de nossos usuários não ser encontrado no banco de dados.
+
+~~~Java
+public class ErrorDetails {
+    private Date timestamp;
+    private String message;
+    private String details;
+}
+~~~
+*Snippet da classe ErrorDetails*
+
+
+&nbsp;
+
+A classe ErrorDetails será usada encapsular informações importantes sobre a Exception num único objeto.
+
+~~~Java
+@ControllerAdvice
+public class GlobalExceptionHandler {
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<?> resourceNotFoundException(ResourceNotFoundException ex, WebRequest request) {
+         ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
+         return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
+    
+    @ExceptionHandler(ConstraintException.class)
+    public ResponseEntity<?> constraintException(ConstraintException ex, WebRequest request) {
+         ErrorDetails errorDetails = new ErrorDetails(new Date(), ex.getMessage(), request.getDescription(false));
+         return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
+    }
+}
+~~~
+*Snippet da classe GlobalExceptionHandler*
+
+
+&nbsp;
+
+Por fim, temos a classe mais importante do pacote, a classe GlobalExceptionHandler, que será responsável por retornar informações encapsuladas num objeto do tipo ErrorDetails aos endpoints em que as exceptions definidas pelas classes RuntimeException e ResourceNotFoundException ocorrerem. Note que ela tem a anotação @ControllerAdvice do Spring que a define como um "centro de tratamendo de erros" e, acima dos seus métodos, temos as anotações que definem qual método será chamado para cada tipo de Exception definida.
 
 >_O pessoal do departamento de exception handling é bem eficiente, eles têm uns gestos esquisitos pra se comunicar, mas tudo bem_
 <img width="400" height="320" src="https://user-images.githubusercontent.com/27890590/115148324-6c8fb400-a035-11eb-99f1-5f5c8c25b4d4.png">
