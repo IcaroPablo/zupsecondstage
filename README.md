@@ -1,5 +1,5 @@
 # Como escrever uma simples API RESTful usando Spring + Hibernate (ou morrer tentando)
-![image](https://user-images.githubusercontent.com/27890590/115165433-46ddcb80-a084-11eb-89f3-a587d2301586.png)
+
 
 Olá meu nobre rapaz, sim, você mesmo. Você estaria interessado em uns negócios diferenciados tipo... entrar na máfia ? Ah... desculpe, então você só quer aprender a escrever uma API em Java usando Spring? Bom, não importa, eu posso ensinar as duas coisas e elas funcionam de maneira bastante parecida na verdade. Então se você estiver interessado em segredos que podem custar sua vida, continue a leitura.
 
@@ -405,7 +405,7 @@ Agora iremos usar a ferramenta Postman para demonstrar o funcionamento do nosso 
 
 >_Ou chamaremos nosso carteiro hipotético, por assim dizer._
 
-
+![image](https://user-images.githubusercontent.com/27890590/115165433-46ddcb80-a084-11eb-89f3-a587d2301586.png)
 
 *imagem de erro no cadastro de usuário, com status retornado 400*
 
