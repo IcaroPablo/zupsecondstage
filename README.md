@@ -2,7 +2,7 @@
 
 Olá meu nobre rapaz, sim, você mesmo. Você estaria interessado em uns negócios diferenciados tipo... entrar na máfia ? Ah... desculpe, então você só quer aprender a escrever uma API em Java usando Spring? Bom, não importa, eu posso ensinar as duas coisas e elas funcionam de maneira bastante parecida na verdade. Então se você estiver interessado em segredos que podem custar sua vida, continue a leitura.
 
-![image](https://assets-prd.ignimgs.com/2020/05/19/screenshots-environment-11-1589865087356.png)
+![image](https://user-images.githubusercontent.com/27890590/115147581-0a817f80-a032-11eb-8f13-415a015b1b55.png)
 
 O esquema dessa vez é bem simples, você está com sorte: precisamos fazer cadastros de usuários e fazer cadastros de endereços desses usuários. Mas, claro, tomando cuidado com armazenamento certo das informações e usando dos recursos disponíveis para avisar qualquer desvio do protocolo padrão (eu sei que você ja escreveu a data no lugar do nome durante a prova na escola, não adianta negar).
 
