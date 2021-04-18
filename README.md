@@ -258,8 +258,10 @@ public class UserService {
     private AddressRepository addressRepository;
 	
     public UserAndAddresses getUserInformationById(Long userId) throws ResourceNotFoundException {
-    	User user = userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("There is no User for the id " + userId));
-        List<Address> addresses = addressRepository.findByUserId(userId);
+    	User user = userRepository.findById(userId).orElseThrow(() -> new 
+		ResourceNotFoundException("There is no User for the id " + userId));
+        
+	List<Address> addresses = addressRepository.findByUserId(userId);
         UserAndAddresses userdata = new UserAndAddresses(user, addresses);
         
         return userdata;
@@ -277,9 +279,12 @@ public class UserService {
     	}
     }
     
-    public Address createAddress(Long userId, Address address) throws ResourceNotFoundException, DataIntegrityViolationException, Exception{
-    	User user = userRepository.findById(userId).orElseThrow(() -> new ResourceNotFoundException("There is no User for this id: " + userId));
-    	address.setUser(user);
+    public Address createAddress(Long userId, Address address)
+    	        throws ResourceNotFoundException, DataIntegrityViolationException, Exception{
+    	User user = userRepository.findById(userId).orElseThrow(() -> new 
+		ResourceNotFoundException("There is no User for this id: " + userId));
+    	
+	address.setUser(user);
     	
     	try {
     		return addressRepository.save(address);
