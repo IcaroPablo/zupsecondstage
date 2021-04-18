@@ -84,8 +84,7 @@ public class User {
     @Column(name = "cpf", unique = true)
     private String cpf;
     
-    @NotBlank
-    @Column(name = "birthday")
+    @Column(name = "birthday", nullable = false)
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
 } 
