@@ -6,24 +6,24 @@ Olá meu nobre rapaz, sim, você mesmo, fiquei sabendo que você está querendo 
 
 O esquema dessa vez é bem simples, você está com sorte: precisamos fazer cadastros de usuários e fazer cadastros de endereços desses usuários. Mas, claro, tomando cuidado com armazenamento certo das informações e usando dos recursos disponíveis para avisar qualquer desvio do protocolo padrão (eu sei que você ja escreveu a data no lugar do nome durante a prova na escola, não adianta negar).
 
-Então eu apresento a solução perfeita pra esse problema, a ***Famiglia Corleone***, oh, desculpe, o ***SPRING MVC***.
+Então eu apresento a solução perfeita pra esse problema, a ***Famiglia Corleone***, oh, desculpe (*cof cof*), o ***Spring Framework***.
 Então vamos ao funcionamento do nosso código.
 
 # Funcionamento do código
 
-Acompanhe meu raciocínio, o Spring funcionaria perfeitamente como um prédio da máfia, sim sim, acredite em mim, teríamos 3 caixas de correio na entrada do prédio: duas delas seriam para entradas de informação e uma delas seria para a saída. Bom, e para simular o envio de mensages (que daqui pra frente chamaremos de requisições) suponhamos que teríamos um amigável carteiro hipotético (usaremos a ferramenta Postman, ela ilustrará alguns exemplos mais a diante).
+Acompanhe meu raciocínio, o Spring funcionaria perfeitamente como um prédio da máfia, sim sim, acredite em mim. Teríamos 3 caixas de correio na entrada do prédio: duas delas seriam para entradas de mensagens com cadastros (que daqui para a frente chamaremos de requisições ou requests) e uma delas seria para a saída. Bom, e para simular o envio das requisições de cadastro suponhamos que teríamos um amigável carteiro hipotético (usaremos a ferramenta Postman, ela ilustrará alguns exemplos mais a diante). Dentro do prédio os membros da *famiglia* cuidariam de verificar e direcionar as requisições de cadastro recebidas para o pessoal especializado.
 
-Mas onde nós iremos guardar os cadastros feitos para que eles possam ser consultados posteriormente ? Usaremos uma API chamada JPA e um banco de dados baseado em SQL: PostgreSQL. A JPA foi escolhida porque ela é bastante prática. Ela ficará responsável pelo ORM no nosso código (Object-Relational Mapping), ou seja, podemos escrever classes no nosso código que serão interpretadas pela JPA como entidades no banco de dados. Isso facilita muito o trabalho, pois não precisamos ter dores de cabeça com _queries_ em SQL.
+Desculpe, eu perco o fio da meada muito fácil, mas, falando do código, onde nós iremos guardar os cadastros feitos para que eles possam ser consultados posteriormente? Usaremos uma API chamada JPA (Java Persistence API) e um banco de dados baseado em SQL, o PostgreSQL. A JPA foi escolhida porque ela é bastante prática: ela ficará responsável pelo ORM no nosso código (Object-Relational Mapping), ou seja, podemos escrever classes no nosso código que serão interpretadas pela JPA como entidades que terão tabelas correspondentes no banco de dados. Isso facilita muito o nosso trabalho, pois as _queries_ mais recorrentes que precisaríamos fazer têm métodos correspondentes implementados na JPA. Mas, caso precisemos fazer usos de _queries_ específicas, nós mesmos podemos escrevê-las usando anotações da JPA ou podemos usar um outro recurso muito útil _também_ da JPA, os Derived Query Methods, o que eu acho preferível, porque eles aumentam a portabilidade do código (as tecnologias modernas são realmente impressionantes não é mesmo ?).
 
->_Pense no JPA como o responsável pela sala de arquivos, ele é um rapaz bem simpático e está sempre disposto a ajudar. Hoje ele tá particularmente animado porque finalmente apareceu uma utilidade pro novo armário dele, um armário onde as gavetas têm mais gavetas dentro, ele foi produzido por uma marca muito boa, a PostgreSQL._
+>_Pense no JPA como o responsável pela sala de arquivos, ele é um rapaz bem simpático e está sempre disposto a ajudar. Hoje ele está particularmente animado porque finalmente apareceu uma utilidade pro novo armário dele, um armário onde as gavetas têm mais gavetas dentro, ele foi produzido por uma marca muito boa, a PostgreSQL._
 
-Usaremos a IDE Eclipse para escrever o código pois ela já organiza muito bem a estrutura de arquivos em uma aplicação java e tem vários módulos e funcionalidades embutidos que nos permitem ser mais ágeis na escrita.
+Usaremos a IDE Eclipse para escrever o código pois ela já organiza muito bem a estrutura de arquivos em uma aplicação java e tem vários módulos e funcionalidades embutidos que nos permitem ser mais ágeis na escrita do código.
 
 Certo, certo, garoto, eu sei que você quer saber o que acontece dentro do prédio... então por onde nós começaremos a fazer isso tudo ?
 
 ### CRIANDO O PRÉDIO ORA BOLAS
 
-Podemos iniciar um novo projeto spring pelo site start.spring.io, nesse site selecionaremos nossas especificações, as mais importantes são:
+Podemos iniciar um novo projeto spring pelo site [start.spring.io](https://start.spring.io/), nesse site selecionaremos nossas especificações de projeto, as mais importantes são:
 
 * Java (versão 8) como linguagem de programação
 * Maven como gerenciador de dependências
@@ -33,37 +33,38 @@ Podemos iniciar um novo projeto spring pelo site start.spring.io, nesse site sel
     * PostgreSQL driver
     * Hibernate validation
 
-Quanto a gerenciamento de dependências, o maven é uma ótima ferramenta, pois, com ele, precisamos apenas declarar as dependências que queremos num único arquivo .xml e ele ficará responsável pelo resto: baixar todas as bibliotecas que precisamos e também as bibliotecas que essas bibliotecas precisam.
+Quanto a gerenciamento de dependências, o Maven é uma ótima ferramenta, pois, com ele, precisamos apenas declarar as dependências que queremos num único arquivo, o pom.xml e ele ficará responsável pelo resto: baixar todas as bibliotecas que precisamos e também as bibliotecas que essas bibliotecas precisam.
 
->_Pense que todos dentro do nosso prédio mafioso se comunicam em uma linguagem secreta chamada java e pense no Maven como se fosse um daqueles contatos esquisitos que todo mafioso tem, ele manda funcionários especiais pra gente de acordo com nossas demandas, esses funcionários são as dependências._
+>_Pense que todos dentro do nosso prédio se comunicam em uma linguagem secreta chamada Java e pense no Maven como se fosse um daqueles contatos esquisitos que todo mafioso tem, ele manda funcionários especiais para nós de acordo com nossas demandas, esses funcionários são as dependências._
 
-Bom, depois disso importamos o projeto no Eclipse e configuramos o arquivo application.properties para que a relação entre o JPA e o PostgreSQL esteja nos conformes.
+Bom, depois disso importamos o projeto no Eclipse e escrevemos no arquivo application.properties algumas configurações para que a relação entre o JPA e o PostgreSQL esteja nos conformes (informações de acesso ao banco de dados, como url, login, senha, dialeto de SQL usado...).
 
->_Sim, o nosso garoto JPA, está lendo o manual do armário novo que ele comprou._
+>_Sim, o nosso garoto JPA, está pronto para começar a usar o armário novo que ele comprou._
 
 ### AGORA SIM, VAMOS AOS DEPARTAMENTOS DO PRÉDIO E SUAS FUNÇÕES
 
 Nossa aplicação terá 5 pacotes principais, um para cada categoria de classes a seguir:
 * Models
 * Controllers
-* Services
 * Repositories
+* Services
 * Exception handlers
 
 ## O departamento de Model
 
-Escreveremos três classes de model, uma para o cadastro de usuários e outra para o cadastro de endereço dos usuários (e a terceira eu explicarei mais a diante). Nessas classes escreveremos anotações que nos ajudarão com validações nas informações dos cadastros, com destaques para as anotações de email e cpf que exigem que eles não se repitam dentro do banco de dados, essas anotações são do Bean Validation e do Hibernate, eles facilitam o trabalho de verificar se os dados recebidos fazem algum sentido (é como diz aquele ditado, o usuário escreve torto por linhas tortas).
+Escreveremos três classes de model, uma para o cadastro de usuários, uma para o cadastro de endereço dos usuários e uma terceira para encapsular um usuário com seus respectivos endereços num único objeto. Nas duas primeiras classes escreveremos anotações (como a @NotBlank) que nos ajudarão com validações nas informações dos cadastros, com destaques para as anotações de e-mail e cpf (@Email e @CPF), pois elas verificam a coerência dos dados informados. Essas anotações são do Bean Validation e do Hibernate, eles facilitam o trabalho de verificar se os dados recebidos fazem algum sentido (é como diz aquele ditado: o usuário escreve torto por linhas tortas).
 
 Também temos anotações do JPA:
 * Para criar uma entidade e sua respectiva tabela no banco de dados:
     * @Entity e @Table
 * Para geração de ids automáticos dentro da tabela, para que não tenhamos que nos preocupar com a ordem do armazenamento de informação
     * @Id e @GeneratedValue(strategy = GenerationType.IDENTITY)
-* Para colunas com as informações desejadas na tabela e suas respectivas exigências
+* Para colunas com as informações desejadas na tabela e suas respectivas exigências (como garantir que cpf e e-mail não se repitam no cadastro de usuários)
     * @Column
 
->_As classes de model são como envelopes contendo a informação que nós queremos armazenar no arquivo, elas serão entregues ao nosso querido JPA e ele vai guardar elas corretamente seguindo orientações de notas especiais. Essas notas foram escritas pelo Hibernate, um dos capangas do Maven, quer saber como ele sabe disso tudo? Digamos que ele tem os próprios _métodos_ se é que você me entende._
+>_As classes de model são como envelopes contendo a informação  das requisições que nós queremos armazenar no arquivo, elas serão entregues ao nosso querido JPA e ele vai guardar elas corretamente seguindo orientações de notas especiais. Essas notas foram escritas pelo Hibernate, um dos capangas do Maven, quer saber como ele sabe disso tudo? Digamos que ele tem os próprios _métodos_ se é que você me entende._
 
+_Nota: os snippets exibidos a seguir não contêm getters e setters para que foquemos só no que é mais essencial._
 ~~~Java
 @Entity
 @Table(name = "users")
@@ -73,16 +74,22 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     
-    @Column(name = "username", nullable = false)
+    @Column(name = "username")
+    @NotBlank
     private String username;
     
-    @Column(name = "email", unique = true, nullable = false)
+    @NotBlank
+    @Email
+    @Column(name = "email", unique = true)
     private String email;
     
-    @Column(name = "cpf", unique = true, nullable = false)
+    @NotBlank
+    @CPF
+    @Column(name = "cpf", unique = true)
     private String cpf;
     
-    @Column(name = "birthday", nullable = false)
+    @NotBlank
+    @Column(name = "birthday")
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
 } 
@@ -96,43 +103,64 @@ public class User {
 @Table(name = "addresses")
 public class Address {
 
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 	
-	@Column(name = "logradouro", nullable = false)
+    @NotBlank
+    @Column(name = "logradouro")
     private String logradouro;
 	
-	@Column(name = "numero", nullable = false)
+    @NotBlank
+    @Column(name = "numero")
     private String numero;
 	
-	@Column(name = "complemento", nullable = false)
+    @NotBlank
+    @Column(name = "complemento")
     private String complemento;
 	
-	@Column(name = "bairro", nullable = false)
+    @NotBlank
+    @Column(name = "bairro")
     private String bairro;
 	
-	@Column(name = "cidade", nullable = false)
+    @NotBlank
+    @Column(name = "cidade")
     private String cidade;
 	
-	@Column(name = "estado", nullable = false)
+    @NotBlank
+    @Column(name = "estado")
     private String estado;
 	
-	@Column(name = "cep", nullable = false)
+    @NotBlank
+    @Column(name = "cep")
     private String cep;
 	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "user_id", nullable = false)
-	private User user;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+}
 ~~~
 *Snippet da classe model de endereço*
 
 
 &nbsp;
 
-No noso model de endereços temos uma coluna especial (@JoinColumn(name = "user_id", nullable = false)), essa coluna vai ser responsável por relacionar cada endereço ao seu respectivo usuário numa relação do tipo Many to One, pois um usuário pode ter vários endereços.
+No nosso model de endereços temos uma coluna especial com as anotações @ManyToOne e @JoinColumn(name = "user_id", nullable = false), essa coluna vai ser responsável por relacionar cada endereço ao seu respectivo usuário numa relação do tipo _Many to One_, pois um usuário pode ter vários endereços.
 
 >_Deu pra entender por que as gavetas dentro de gavetas são importantes agora né ?_
+
+Por fim a classe de "usuário e endereços" que tem uma estrutura bem simples.
+
+~~~Java
+public class UserAndAddresses {
+    private User user;
+    private List<Address> addresses;
+}
+~~~
+*Snippet da classe de "usuário e endereços"*
+
+
+&nbsp;
 
 ## O departamento de Controller
 
@@ -157,7 +185,7 @@ public class UserController {
     @PostMapping("/users")
     @ResponseStatus(HttpStatus.CREATED)
     public User createNewUser(@Validated @RequestBody User user, BindingResult br)
-    		throws DataIntegrityViolationException, Exception{
+    		throws DataIntegrityViolationException, Exception {
     	if (br.hasErrors())
     		throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
     	return this.service.createUser(user);
@@ -166,14 +194,14 @@ public class UserController {
     @PostMapping("/users/address/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public Address createAddress(@PathVariable(value = "id") Long userId, @Validated @RequestBody Address address, BindingResult br)
-    		throws ResourceNotFoundException, DataIntegrityViolationException, Exception{
+    		throws ResourceNotFoundException, DataIntegrityViolationException, Exception {
     	if (br.hasErrors())
     		throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
     	return this.service.createAddress(userId, address);
     }
 }
 ~~~
-*Snippet da classe model de endereço*
+*Snippet da classe de controller*
 
 
 &nbsp;
