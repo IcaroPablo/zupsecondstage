@@ -1,6 +1,6 @@
 # Como escrever uma simples API RESTful usando Spring + Hibernate (ou morrer tentando)
 
-Olá meu nobre rapaz, sim, você mesmo, está interessado em uns negócios diferenciados tipo... entrar na máfia ? Ah... desculpe, então você só quer aprender a escrever uma API em Java usando Spring? Bom, não importa, eu posso ensinar as duas coisas e elas funcionam de maneira bastante parecida na verdade. Então se você estiver interessado em segredos que podem custar sua vida, continue a leitura.
+Olá meu nobre rapaz, sim, você mesmo. Você estaria interessado em uns negócios diferenciados tipo... entrar na máfia ? Ah... desculpe, então você só quer aprender a escrever uma API em Java usando Spring? Bom, não importa, eu posso ensinar as duas coisas e elas funcionam de maneira bastante parecida na verdade. Então se você estiver interessado em segredos que podem custar sua vida, continue a leitura.
 
 ![image](https://user-images.githubusercontent.com/27890590/115122741-e3727180-9f8f-11eb-8d3f-19fb6135c0ec.png)
 
