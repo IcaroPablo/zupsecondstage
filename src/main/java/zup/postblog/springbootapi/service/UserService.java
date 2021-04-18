@@ -39,7 +39,7 @@ public class UserService {
     		throw new ConstraintException("Constraint Problem - " + e.getMostSpecificCause().getMessage());
     	}
     	catch(Exception e) {
-    		throw new Exception("Unknown error :( but i know some details that could help: " + e.getMessage());
+    		throw new Exception("Unknown error, but here is some info: " + e.getMessage());
     	}
     }
     
@@ -54,7 +54,7 @@ public class UserService {
     		throw new ConstraintException("Constraint Problem - " + e.getMostSpecificCause().getMessage());
     	}
     	catch(Exception e) {
-    		throw new Exception("Unknown error :( but i know some details that could help: " + e.getMessage());
+    		throw new Exception("Unknown error, but here is some info: " + e.getMessage());
     	}
     }
 }

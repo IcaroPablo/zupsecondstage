@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "addresses")
@@ -19,25 +19,32 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 	
-	@Column(name = "logradouro", nullable = false)
+	@NotBlank
+	@Column(name = "logradouro")
     private String logradouro;
 	
-	@Column(name = "numero", nullable = false)
+	@NotBlank
+	@Column(name = "numero")
     private String numero;
 	
-	@Column(name = "complemento", nullable = false)
+	@NotBlank
+	@Column(name = "complemento")
     private String complemento;
 	
-	@Column(name = "bairro", nullable = false)
+	@NotBlank
+	@Column(name = "bairro")
     private String bairro;
 	
-	@Column(name = "cidade", nullable = false)
+	@NotBlank
+	@Column(name = "cidade")
     private String cidade;
 	
-	@Column(name = "estado", nullable = false)
+	@NotBlank
+	@Column(name = "estado")
     private String estado;
 	
-	@Column(name = "cep", nullable = false)
+	@NotBlank
+	@Column(name = "cep")
     private String cep;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)

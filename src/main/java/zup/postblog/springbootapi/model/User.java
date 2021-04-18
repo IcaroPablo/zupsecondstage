@@ -8,6 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
+import org.hibernate.validator.constraints.br.CPF;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -19,13 +23,18 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     
-    @Column(name = "username", nullable = false)
+    @Column(name = "username")
+    @NotBlank
     private String username;
     
-    @Column(name = "email", unique = true, nullable = false)
+    @NotBlank
+    @Email
+    @Column(name = "email", unique = true)
     private String email;
     
-    @Column(name = "cpf", unique = true, nullable = false)
+    @NotBlank
+    @CPF
+    @Column(name = "cpf", unique = true)
     private String cpf;
     
     @Column(name = "birthday", nullable = false)
