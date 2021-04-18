@@ -33,7 +33,7 @@ Podemos iniciar um novo projeto spring pelo site [start.spring.io](https://start
     * PostgreSQL driver
     * Hibernate validation
 
-Quanto a gerenciamento de dependências, o Maven é uma ótima ferramenta, pois, com ele, precisamos apenas declarar as dependências que queremos num único arquivo, o pom.xml e ele ficará responsável pelo resto: baixar todas as bibliotecas que precisamos e também as bibliotecas que essas bibliotecas precisam.
+Quanto a gerenciamento de dependências, o Maven é uma ótima ferramenta, pois, com ele, precisamos apenas declarar as dependências que queremos num único arquivo, o pom.xml, e ele ficará responsável pelo resto: baixar todas as bibliotecas que precisamos e também as bibliotecas que essas bibliotecas precisam.
 
 >_Pense que todos dentro do nosso prédio se comunicam em uma linguagem secreta chamada Java e pense no Maven como se fosse um daqueles contatos esquisitos que todo mafioso tem, ele manda funcionários especiais para nós de acordo com nossas demandas, esses funcionários são as dependências._
 
