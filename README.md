@@ -322,6 +322,52 @@ Nesse pacote teremos classes responsáveis por tratar os eventuais erros que pos
 
 ## Testes com o Postman
 
+Agora iremos usar a ferramenta Postman para demonstrar o funcionamento do nosso código. O Postman será usado para enviar e receber requests aos endpoints que programamos e com ele será possível ver também os status de _http_ que receberemos em cada caso.
+
+>_Ou chamaremos nosso carteiro hipotético, por assim dizer._
+
+![image](./assets/cadastrousererro.jfif)
+
+*imagem de erro no cadastro de usuário, com status retornado 400*
+
+
+&nbsp;
+
+![image](./assets/cadastrouserok.jfif)
+
+*imagem de criação do cadastro de usuário, com status retornado 201*
+
+
+&nbsp;
+
+![image](./assets/cadastroenderecoerro.jfif)
+
+*imagem de erro no cadastro de endereço, com status retornado 400*
+
+
+&nbsp;
+
+![image](./assets/cadastroenderecook.jfif)
+
+*imagem de criação do cadastro de endereço, com status retornado 201*
+
+
+&nbsp;
+
+![image](./assets/consultaerro.jfif)
+
+*imagem de erro de consulta de usuário cadastrado, com status retornado 404*
+
+
+&nbsp;
+
+![image](./assets/consultaok.jfif)
+
+*imagem de consulta correta de usuário cadastrado, com status retornado 200*
+
+
+&nbsp;
+
 ## Uma última consideração
 
 Ah, eu quase me esqueci, meu jovem... talvez eu tenha falado um pouquinho mais do que eu deveria. Mas, bom, eu avisei para você que eram segredos que poderiam custar a sua vida, então eu lamento garoto... hohoho... você não pode mais continuar vivo, você sabe demais agora. Você tem 5 minutos para correr.
