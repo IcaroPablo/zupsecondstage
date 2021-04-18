@@ -2,7 +2,8 @@
 
 Olá meu nobre rapaz, sim, você mesmo. Você estaria interessado em uns negócios diferenciados tipo... entrar na máfia ? Ah... desculpe, então você só quer aprender a escrever uma API em Java usando Spring? Bom, não importa, eu posso ensinar as duas coisas e elas funcionam de maneira bastante parecida na verdade. Então se você estiver interessado em segredos que podem custar sua vida, continue a leitura.
 
-![image](https://user-images.githubusercontent.com/27890590/115147581-0a817f80-a032-11eb-8f13-415a015b1b55.png)
+![image](https://user-images.githubusercontent.com/27890590/115147623-461c4980-a032-11eb-8f22-6f4e97e9a13f.png)
+
 
 O esquema dessa vez é bem simples, você está com sorte: precisamos fazer cadastros de usuários e fazer cadastros de endereços desses usuários. Mas, claro, tomando cuidado com armazenamento certo das informações e usando dos recursos disponíveis para avisar qualquer desvio do protocolo padrão (eu sei que você ja escreveu a data no lugar do nome durante a prova na escola, não adianta negar).
 
@@ -13,7 +14,7 @@ Então vamos ao funcionamento do nosso código.
 
 Acompanhe meu raciocínio, o Spring funcionaria perfeitamente como um prédio da máfia, sim sim, acredite em mim. Teríamos 3 caixas de correio na entrada do prédio: duas delas seriam para entradas de mensagens com cadastros (que daqui para a frente chamaremos de requisições ou requests) e uma delas seria para a saída. Bom, e para simular o envio das requisições de cadastro suponhamos que teríamos um amigável carteiro hipotético (usaremos a ferramenta Postman, ela ilustrará alguns exemplos mais a diante). Dentro do prédio os membros da *famiglia* cuidariam de verificar e direcionar as requisições de cadastro recebidas para o pessoal especializado.
 
-![image](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.ign.com%2Farticles%2Fmafia-trilogy-august-release-remake-mafia-1&psig=AOvVaw3Ke9wgmtK6vs_iqO5XScxC&ust=1618839317482000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMDgss30h_ACFQAAAAAdAAAAABAD)
+![image](https://user-images.githubusercontent.com/27890590/115147581-0a817f80-a032-11eb-8f13-415a015b1b55.png)
 
 Ah, Desculpe, eu perco o fio da meada muito fácil, vamos voltar a falar do código. Onde nós iremos guardar os cadastros feitos para que eles possam ser consultados posteriormente? Usaremos uma API chamada JPA (Java Persistence API) e um banco de dados baseado em SQL, o PostgreSQL. A JPA foi escolhida porque ela é bastante prática: ela ficará responsável pelo ORM no nosso código (Object-Relational Mapping), ou seja, podemos escrever classes no nosso código que serão interpretadas pela JPA como entidades que terão tabelas correspondentes no banco de dados. Isso facilita muito o nosso trabalho, pois as _queries_ mais recorrentes que precisaríamos fazer têm métodos correspondentes implementados na JPA. Mas, caso precisemos fazer usos de _queries_ específicas, nós mesmos podemos escrevê-las usando anotações da JPA ou podemos usar um outro recurso muito útil _também_ da JPA, os _Derived Query Methods_, o que eu acho preferível, porque eles aumentam a portabilidade do código (as tecnologias modernas são realmente impressionantes não é mesmo ?).
 
