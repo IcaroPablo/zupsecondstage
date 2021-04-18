@@ -412,35 +412,35 @@ Agora iremos usar a ferramenta Postman para demonstrar o funcionamento do nosso 
 
 &nbsp;
 
-![image](./assets/cadastrouserok.jfif)
+![image](https://user-images.githubusercontent.com/27890590/115165525-9ae8b000-a084-11eb-9fda-8567d9f518b7.png)
 
 *imagem de criação do cadastro de usuário, com status retornado 201*
 
 
 &nbsp;
 
-![image](./assets/cadastroenderecoerro.jfif)
+![image](https://user-images.githubusercontent.com/27890590/115165533-a3d98180-a084-11eb-9c5f-0fa22a9a742c.png)
 
 *imagem de erro no cadastro de endereço, com status retornado 400*
 
 
 &nbsp;
 
-![image](./assets/cadastroenderecook.jfif)
+![image](https://user-images.githubusercontent.com/27890590/115165536-ab008f80-a084-11eb-9ec0-466477297783.png)
 
 *imagem de criação do cadastro de endereço, com status retornado 201*
 
 
 &nbsp;
 
-![image](./assets/consultaerro.jfif)
+![image](https://user-images.githubusercontent.com/27890590/115165539-b18f0700-a084-11eb-80ac-6e527a52b33d.png)
 
 *imagem de erro de consulta de usuário cadastrado, com status retornado 404*
 
 
 &nbsp;
 
-![image](./assets/consultaok.jfif)
+![image](https://user-images.githubusercontent.com/27890590/115165543-b653bb00-a084-11eb-98b4-ee7208c61c42.png)
 
 *imagem de consulta correta de usuário cadastrado, com status retornado 200*
 
