@@ -298,7 +298,7 @@ public class UserService {
 
 &nbsp;
 
-Logo de cara dá pra perceber mais dois @Autowired ali, injetamos objetos das duas classes de repository que, como eu explique anteriormente, contêm métodos para que acessemos o banco de dados. Temos métodos para registrar os usuários, para registrar os endereços de um usuário e para exibir um usuário com todos os seus endereços.
+Logo de cara dá pra perceber mais dois @Autowired ali, injetamos objetos das duas classes de repository que, como eu expliquei anteriormente, contêm métodos para que acessemos o banco de dados. Temos métodos para registrar os usuários, para registrar os endereços de um usuário e para exibir um usuário com todos os seus endereços.
 
 Caso algo dê errado no processo, teremos uma noção de onde pode ter ocorrido o erro devido às classes de exception handling que serão explicadas a seguir.
 
@@ -307,8 +307,8 @@ Caso algo dê errado no processo, teremos uma noção de onde pode ter ocorrido 
 Nesse pacote teremos classes responsáveis por tratar os eventuais erros que possam acontecer durante o processo de cadastro e de cunsulta de informações no banco de dados
 
 >_O pessoal do departamento de exception handling é bem eficiente, eles têm uns gestos esquisitos pra se comunicar, mas tudo bem_
+<img width="400" height="320" src="https://user-images.githubusercontent.com/27890590/115148324-6c8fb400-a035-11eb-99f1-5f5c8c25b4d4.png">
 
-![imagem](https://thumbs.dreamstime.com/z/homem-africano-que-faz-caretas-da-raiva-guardando-o-dedo-perto-do-pesco%C3%A7o-imitando-faca-cortando-garganta-130221996.jpg)
 *Típico funcionário do departamento de exception handling num dia de trabalho normal*
 
 
