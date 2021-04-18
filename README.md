@@ -308,7 +308,7 @@ Vale notar também que aqui usaremos aquela terceira classe que eu mencionei no 
 
 Caso algo dê errado no processo, teremos uma noção de onde pode ter ocorrido o erro devido às classes de exception handling que serão explicadas a seguir.
 
-## O departamente de Exeption handling
+## O departamente de Exception handling
 
 Nesse pacote teremos 4 classes responsáveis por tratar os eventuais erros que possam acontecer durante o processo de cadastro e de consulta de informações no banco de dados. Essas classes são mostradas a seguir:
 
