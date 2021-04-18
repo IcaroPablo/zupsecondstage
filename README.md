@@ -2,8 +2,7 @@
 
 Olá meu nobre rapaz, sim, você mesmo. Você estaria interessado em uns negócios diferenciados tipo... entrar na máfia ? Ah... desculpe, então você só quer aprender a escrever uma API em Java usando Spring? Bom, não importa, eu posso ensinar as duas coisas e elas funcionam de maneira bastante parecida na verdade. Então se você estiver interessado em segredos que podem custar sua vida, continue a leitura.
 
-![image](https://user-images.githubusercontent.com/27890590/115147623-461c4980-a032-11eb-8f22-6f4e97e9a13f.png)
-
+<img src="https://user-images.githubusercontent.com/27890590/115147623-461c4980-a032-11eb-8f22-6f4e97e9a13f.png">
 
 O esquema dessa vez é bem simples, você está com sorte: precisamos fazer cadastros de usuários e fazer cadastros de endereços desses usuários. Mas, claro, tomando cuidado com armazenamento certo das informações e usando dos recursos disponíveis para avisar qualquer desvio do protocolo padrão (eu sei que você ja escreveu a data no lugar do nome durante a prova na escola, não adianta negar).
 
@@ -217,7 +216,7 @@ Também temos uma outra anotação importante nessa classe, a anotação @Autowi
 
 No pacote de repositories temos apenas duas classes que estendem a classe JpaRepository e herdam métodos úteis para que possamos usar nosso banco de dados para salvar as informações desejadas.
 
->_O rapaz JPA trabalha no departamento de repository, ele tem os seus pupilos, o UserRepository e o AddressRepository, ele ensinou muito bem pra eles como se usa a sala do arquivo._
+>_O rapaz JPA trabalha no departamento de repository, ele tem os seus pupilos, o UserRepository e o AddressRepository, ele ensinou muito bem para eles como se usa a sala do arquivo._
 
 ~~~Java
 @Repository
@@ -237,7 +236,7 @@ public interface AddressRepository extends JpaRepository<Address, Long>{
 
 }
 ~~~
-*Snippet da classe de repository de endereçor*
+*Snippet da classe de repository de endereço*
 
 
 &nbsp;
@@ -299,9 +298,9 @@ public class UserService {
 
 &nbsp;
 
-Logo de cara dá pra perceber mais dois @Autowired ali, injetamos objetos das duas classes de repository.
+Logo de cara dá pra perceber mais dois @Autowired ali, injetamos objetos das duas classes de repository que, como eu explique anteriormente, contêm métodos para que acessemos o banco de dados. Temos métodos para registrar os usuários, para registrar os endereços de um usuário e para exibir um usuário com todos os seus endereços.
 
-Temos métodos para registrar os usuários, para registrar os endereços de um usuário e para exibir um usuário com todos os seus endereços. Caso algo dê errado no processo, teremos uma noção de onde pode ter ocorrido o erro devido às classes de exception handling que serão explicadas a seguir.
+Caso algo dê errado no processo, teremos uma noção de onde pode ter ocorrido o erro devido às classes de exception handling que serão explicadas a seguir.
 
 ## O departamente de Exeption handling
 
